@@ -1,0 +1,19 @@
+name: Program Code Convention
+on:
+  push:
+    branches: [ main ]
+jobs:
+  JavaScriptCodeLinter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code in Repository
+        uses: actions/checkout@v4
+      - name: Validate JavaScript File
+        run: npx --yes @biomejs/biome check ProgramCode.js
+  JavaScriptCodeLinterModified:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code in Repository
+        uses: actions/checkout@v4
+      - name: Validate Modified JavaScript File
+        run: npx --yes @biomejs/biome check ProgramCodeModified.js
